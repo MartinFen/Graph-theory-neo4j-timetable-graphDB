@@ -17,9 +17,9 @@ The parts of the timetabling system are as follows,
 | Student groups | This node will contain info on the student groups of an course |
 | Modules | This node will contain info on the modules of a course |
 
-## Getting started
+## Getting started Introduction
 
-The things that you need to use this project are as follows,
+The things that you need to create, run and use this project are,
 
 1. [Neo4j](https://neo4j.com/download/) - Website for neo4j graph database
 
@@ -27,31 +27,38 @@ The things that you need to use this project are as follows,
 
 ### Neo4j,
 
-[Neo4j website](https://neo4j.com)
+[Neo4j](https://neo4j.com)
 
 [Neo4j docs](https://neo4j.com/developer/get-started/)
 
-### Reguler expressions (REGEX)
+### Data extraction
 
-I used this [site] to help me understand each expression(http://regexr.com/)
+- [GMIT Timetabling website] (https://timetable.gmit.ie/)
 
-I used this site to help me understand each expression https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/
+- [GMIT website](https://www.gmit.ie/)
 
-#### Most helpful (Regex)
+### Regex
 
-I searched on stack overflow to help with my issues tidying up the data from the gmit tt page
+- [Regex editor](http://regexr.com/)
 
-This helped me remove html tags https://www.rhyous.com/2012/12/11/removing-all-xml-or-html-tags-using-notepad/
+- [Cheat sheet](https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/)
 
-here are a few other ones,
+#### Most helpful regex
 
-http://stackoverflow.com/questions/13807207/regex-find-a-number-between-parentheses
+- [For questions I had](https://stackoverflow.com/)
 
-http://stackoverflow.com/questions/38962471/only-remove-numbers-inside-parentheses-brackets
+- [Remove html tags](https://www.rhyous.com/2012/12/11/removing-all-xml-or-html-tags-using-notepad/)
+
+- [Find a number between brackets](http://stackoverflow.com/questions/13807207/regex-find-a-number-between-parentheses)
+
+- [Remove numbers inside backets](http://stackoverflow.com/questions/38962471/only-remove-numbers-inside-parentheses-brackets)
 
 ### Github (Markdown)
 
-http://dillinger.io/
+- [Live markdwn editor](http://dillinger.io/)
 
 ### Cypher
+
+- []()
+
 
