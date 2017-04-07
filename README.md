@@ -4,11 +4,25 @@
 ###### Martin Fennell, G00291266
 
 ## Introduction
-This project is for my 3rd year module graph theory which I am using neo4j to represent a timetabling system for a college in graph database form. The project will show parts of the timetable and their releationships between them.
+This project is for my 3rd year module graph theory which I am using neo4j to represent a timetabling system for a college in graph database form. The project will show timetabling system in graph form and the releationships in the graph between the different parts of the TT system.
 
-The parts of the timetabling system are as follows,
+### Prerequisits (Getting started)
 
-| Parts | Description |
+1. [Neo4j](https://neo4j.com/download/) - Website where to download neo4j graph database
+
+2. [Regex editor](http://regexr.com/) - Online Regex editor 
+
+3. [Notepad++](https://notepad-plus-plus.org/) - Text editor that can use regex and create csv files
+
+### Aims
+
+> The aims of the project are to show that I could reperesent a prototype for a timetabling system in the form of a graph database 
+
+## Database
+
+The nodes of the timetabling graph are as follows,
+
+| Node | Description |
 | ------ | ------ |
 | Course | This node contains info on courses the college runs |
 | Lecturers | This node contains info on lecturers and their contact info |
@@ -17,23 +31,36 @@ The parts of the timetabling system are as follows,
 | Student groups | This node will contain info on the student groups of an course |
 | Modules | This node will contain info on the modules of a course |
 
-## Getting started Introduction
+### Neo4j
 
-The things that you need to create, run and use this project are,
+- talk about neo4j
 
-1. [Neo4j](https://neo4j.com/download/) - Website for neo4j graph database
+### Cypher
+
+- talk about cypher(What the hell is it and what does it do)
+
+## Implementation 
+
+### Data extraction
+
+### Data Implementation
+
+### Cypher Queries
+
+> There are queries I used to search the nodes of the database
+> Match n Return n;
 
 ## References
 
 ### Neo4j,
 
-[Neo4j](https://neo4j.com)
+- [Neo4j](https://neo4j.com)
 
-[Neo4j docs](https://neo4j.com/developer/get-started/)
+- [Neo4j docs](https://neo4j.com/developer/get-started/)
 
 ### Data extraction
 
-- [GMIT Timetabling website] (https://timetable.gmit.ie/)
+- [GMIT Timetabling website](https://timetable.gmit.ie/)
 
 - [GMIT website](https://www.gmit.ie/)
 
@@ -59,9 +86,11 @@ The things that you need to create, run and use this project are,
 
 ### Cypher
 
-- [Using cypher](https://neo4j.com/developer/cypher-query-language/)
+- [Learning cypher 1](https://neo4j.com/developer/cypher-query-language/)
 
-- [Loading csv files](https://neo4j.com/developer/guide-import-csv/#_csv_data_quality)
+- [Learning cypher 2](http://neo4j.com/docs/developer-manual/current/cypher/)
+
+- [Loading csv files](http://neo4j.com/docs/developer-manual/current/get-started/cypher/importing-csv-files-with-cypher/)
 
 
 
