@@ -59,6 +59,9 @@ The things that you need to create, run and use this project are,
 
 ### Cypher
 
-- []()
+- [Using cypher](https://neo4j.com/developer/cypher-query-language/)
+
+- [Loading csv files](https://neo4j.com/developer/guide-import-csv/#_csv_data_quality)
+
 
 
