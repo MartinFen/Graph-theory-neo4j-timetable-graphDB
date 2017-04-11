@@ -70,11 +70,7 @@ The [graphaware](https://graphaware.com/) framework is a useful one that works w
 
 #### How to use
 
-- To enable the framework you need to [download the jar](https://graphaware.com/products/) file put it in the plugin folder of the neo4j install directory 
-
->
-> C:\Program Files\Neo4j CE 3.1.2\plugins
->
+- To enable the framework you need to [download the jar](https://graphaware.com/products/) file put it in the plugin folder of the neo4j install directory `C:\Program Files\Neo4j CE 3.1.2\plugins`.
 
 - You then need to edit the neo4j.conf file by adding the following line to the file,
 
@@ -82,19 +78,17 @@ The [graphaware](https://graphaware.com/) framework is a useful one that works w
 > dbms.unmanaged_extension_classes=com.graphaware.server=/graphaware
 >
 
-- To use the timetree library you need to [download the jar](https://graphaware.com/products/), do the same as before and put the jar in the plugin folder.
-
->
-> C:\Program Files\Neo4j CE 3.1.2\plugins
->
+- To use the timetree library you need to [download the jar](https://graphaware.com/products/), do the same as before and put the jar in the plugin folder `C:\Program Files\Neo4j CE 3.1.2\plugins`.
 
 - Then restart the neo4j server and log into your db.
 
-The next step is to run a query try the following and see that it creates a tree with nodes, relationships and properties for yyyy-mm-dd.
+The next step is to run a query try the following and see that it creates a tree with nodes, relationships and properties for `yyyy-mm-dd`.
 
 ```sh
 $ CALL ga.timetree.range({start: 1491811200000, end: 1492189200000, create: true})
 ```
+
+[Result](https://github.com/MartinFen/Graph-theory-neo4j-timetable-graphDB/blob/master/Timetree_example2.jpg)
 
 Note the numbers in the query, Neo4j measures the time in milliseconds between the dates of `2017-04-10 to 2017-04-14` however the first number is actualy the time its been since the [Unix Epoch](https://en.wikipedia.org/wiki/Unix_time).
 
