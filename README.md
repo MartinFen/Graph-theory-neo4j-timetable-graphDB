@@ -96,8 +96,7 @@ The next step is to run a query try the following and see that it creates a tree
 $ CALL ga.timetree.range({start: 1491811200000, end: 1492189200000, create: true})
 ```
 
-Note the numbers in the query, Neo4j measures the time in milliseconds between the dates of 2017-04-10 to 2017-04-14 however the first number is actualy the time its been since the [Unix Epoch](https://en.wikipedia.org/wiki/Unix_time).
-
+Note the numbers in the query, Neo4j measures the time in milliseconds between the dates of `2017-04-10 to 2017-04-14` however the first number is actualy the time its been since the [Unix Epoch](https://en.wikipedia.org/wiki/Unix_time).
 
 
 ## References
