@@ -6,7 +6,7 @@
 ## Introduction
 This project is for my 3rd year module graph theory which I am using neo4j to represent a timetabling system for a college in graph database form. The project will show timetabling system in graph form and the releationships in the graph between the different parts of the TT system.
 
-### Prerequisits (Getting started)
+#### Prerequisits (Getting started)
 
 1. [Neo4j](https://neo4j.com/download/) - Website where to download neo4j graph database
 
@@ -14,13 +14,13 @@ This project is for my 3rd year module graph theory which I am using neo4j to re
 
 3. [Notepad++](https://notepad-plus-plus.org/) - Text editor that can use regex and create csv files
 
-### Aims
+#### Aims
 
 > The aims of the project are to show that I could reperesent a prototype for a timetabling system in the form of a graph database 
 
 ## Database
 
-### Nodes
+#### Nodes
 
 The nodes of the timetabling graph are as follows,
 
@@ -33,64 +33,72 @@ The nodes of the timetabling graph are as follows,
 | Student groups | This node will contain info on the student groups of an course |
 | Modules | This node will contain info on the modules of a course |
 
-### Properties
+#### Properties
 
-### Relationships
+#### Relationships
 
-### Labels
+#### Labels
 
-### Aggregate functions
+#### Aggregate functions
 
-### Neo4j
+#### Neo4j
 
 - talk about neo4j
 
-### Cypher
+#### Cypher
 
 - talk about cypher(What the hell is it and what does it do)
 
 ## Implementation 
 
-### Data extraction
+#### Data extraction
 
-### Data Implementation
+#### Data Implementation
 
-### Cypher Queries
+#### Cypher Queries
 
 > There are queries I used to search the nodes of the database
 > Match n Return n;
 
 ## Design Decisions (Not implementated but useful)
 
-Below here are desig ideas that I chose not to go ahead with as they did not suit the project design in this case but are usefull for future projects.
+Below here are design ideas that I chose not to go ahead with as they did not suit the project design in this case but are useful for future projects.
 
-### Graphaware / Timetree library
+#### Graphaware framework / Timetree library
 
-The graphaware(insert link to website here) framework is a useful one that works with neo4j and spring(Java) which also uses a REST api. It can be used with neo4j by itself to quickly create a tree of nodes and relationships to reperesent date & time as neo4j doesnt have a very good built in way of designing that this also saves you time in having to design a calander.
+The [graphaware](https://graphaware.com/) framework is a useful one that works with neo4j and spring(Java) which also uses a REST api. It can be used with neo4j by itself to quickly create a tree of nodes and relationships to reperesent date & time as neo4j doesnt have a very good built in way of designing that and this also saves you time in having to design a calander for a long date range.
 
 #### How to use
 
-To enable the framework you need to [download the jar](https://graphaware.com/products/) file put it in the plugin folder of the neo4j install directory 
+- To enable the framework you need to [download the jar](https://graphaware.com/products/) file put it in the plugin folder of the neo4j install directory 
 
+>
 > C:\Program Files\Neo4j CE 3.1.2\plugins
+>
 
-You then need to edit the neo4j.conf file by adding the following line to the file,
+- You then need to edit the neo4j.conf file by adding the following line to the file,
 
+>
 > dbms.unmanaged_extension_classes=com.graphaware.server=/graphaware
+>
 
-To use the timetree library you need to [download the jar](https://graphaware.com/products/), do the same as before and put the jar in the plugin folder.
+- To use the timetree library you need to [download the jar](https://graphaware.com/products/), do the same as before and put the jar in the plugin folder.
 
+>
 > C:\Program Files\Neo4j CE 3.1.2\plugins
+>
 
-Then restart the neo4j server and log into your db.
+- Then restart the neo4j server and log into your db.
 
-the next step is to run a query try the following and see that it creates a tree with nodes, relationships and properties for yyyy-mm-dd.
+The next step is to run a query try the following and see that it creates a tree with nodes, relationships and properties for yyyy-mm-dd.
 
 ```sh
 $ CALL ga.timetree.range({start: 1491811200000, end: 1492189200000, create: true})
 ```
 
-Note the numbers in the query, Neo4j measures the time in milliseconds between the dates of 2017-04-10 to 2017-04-14 however the first number is actualy the time its been since the [Unix Epoch](https://en.wikipedia.org/wiki/Unix_time). 
+Note the numbers in the query, Neo4j measures the time in milliseconds between the dates of 2017-04-10 to 2017-04-14 however the first number is actualy the time its been since the [Unix Epoch](https://en.wikipedia.org/wiki/Unix_time).
+
+
 
 ## References
 
@@ -136,8 +144,8 @@ Note the numbers in the query, Neo4j measures the time in milliseconds between t
 
 ### Un-Used
 
-- [Graphaware Github]()
+- [Graphaware Github](https://github.com/graphaware/neo4j-framework)
 
-- [Timetree Github]()
+- [Timetree Github](https://github.com/graphaware/neo4j-timetree)
 
 
