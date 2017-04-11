@@ -20,6 +20,8 @@ This project is for my 3rd year module graph theory which I am using neo4j to re
 
 ## Database
 
+### Nodes
+
 The nodes of the timetabling graph are as follows,
 
 | Node | Description |
@@ -30,6 +32,14 @@ The nodes of the timetabling graph are as follows,
 | Time slots | This node contains info on the times that classes will be on at |
 | Student groups | This node will contain info on the student groups of an course |
 | Modules | This node will contain info on the modules of a course |
+
+### Properties
+
+### Relationships
+
+### Labels
+
+### Aggregate functions
 
 ### Neo4j
 
@@ -49,6 +59,38 @@ The nodes of the timetabling graph are as follows,
 
 > There are queries I used to search the nodes of the database
 > Match n Return n;
+
+## Design Decisions (Not implementated but useful)
+
+Below here are desig ideas that I chose not to go ahead with as they did not suit the project design in this case but are usefull for future projects.
+
+### Graphaware / Timetree library
+
+The graphaware(insert link to website here) framework is a useful one that works with neo4j and spring(Java) which also uses a REST api. It can be used with neo4j by itself to quickly create a tree of nodes and relationships to reperesent date & time as neo4j doesnt have a very good built in way of designing that this also saves you time in having to design a calander.
+
+#### How to use
+
+To enable the framework you need to [download the jar](https://graphaware.com/products/) file put it in the plugin folder of the neo4j install directory 
+
+> C:\Program Files\Neo4j CE 3.1.2\plugins
+
+You then need to edit the neo4j.conf file by adding the following line to the file,
+
+> dbms.unmanaged_extension_classes=com.graphaware.server=/graphaware
+
+To use the timetree library you need to [download the jar](https://graphaware.com/products/), do the same as before and put the jar in the plugin folder.
+
+> C:\Program Files\Neo4j CE 3.1.2\plugins
+
+Then restart the neo4j server and log into your db.
+
+the next step is to run a query try the following and see that it creates a tree with nodes, relationships and properties for yyyy-mm-dd.
+
+```sh
+$ CALL ga.timetree.range({start: 1491811200000, end: 1492189200000, create: true})
+```
+
+Note the numbers in the query, Neo4j measures the time in milliseconds between the dates of 2017-04-10 to 2017-04-14 however the first number is actualy the time its been since the [Unix Epoch](https://en.wikipedia.org/wiki/Unix_time). 
 
 ## References
 
@@ -92,5 +134,10 @@ The nodes of the timetabling graph are as follows,
 
 - [Loading csv files](http://neo4j.com/docs/developer-manual/current/get-started/cypher/importing-csv-files-with-cypher/)
 
+### Un-Used
+
+- [Graphaware Github]()
+
+- [Timetree Github]()
 
 
