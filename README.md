@@ -88,9 +88,13 @@ The next step is to run a query try the following and see that it creates a tree
 $ CALL ga.timetree.range({start: 1491811200000, end: 1492189200000, create: true})
 ```
 
-[Result](https://github.com/MartinFen/Graph-theory-neo4j-timetable-graphDB/blob/master/Timetree_example2.jpg)
+[![Result](https://github.com/MartinFen/Graph-theory-neo4j-timetable-graphDB/blob/master/Timetree_example2.jpg)]
 
 Note the numbers in the query, Neo4j measures the time in milliseconds between the dates of `2017-04-10 to 2017-04-14` however the first number is actualy the time its been since the [Unix Epoch](https://en.wikipedia.org/wiki/Unix_time).
+
+#### Reasons for not using this approach
+
+I didnt use these plugins because it would'nt work in this project, I chose to not use tools and go with a simpler design because I was having issues with getting the framework to build the nodes that had `weekday names` that matched the date nodes, I also had an issue to change the `resolution : default is day` to `hours`. I felt it was better then to go with a simple prototype design for the day & time representation in the database.
 
 
 ## References
