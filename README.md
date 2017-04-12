@@ -70,17 +70,14 @@ The [graphaware](https://graphaware.com/) framework is a useful one that works w
 
 #### How to use
 
-- To enable the framework you need to [download the jar](https://graphaware.com/products/) file put it in the plugin folder of the neo4j install directory `C:\Program Files\Neo4j CE 3.1.2\plugins`.
+To enable the framework you need to [download the jar](https://graphaware.com/products/) file put it in the plugin folder of the neo4j install directory `C:\Program Files\Neo4j CE 3.1.2\plugins`.
 
-- You then need to edit the neo4j.conf file by adding the following line to the file,
+You then need to edit the neo4j.conf file by adding the following line to the file,
+`dbms.unmanaged_extension_classes=com.graphaware.server=/graphaware`
 
->
-> dbms.unmanaged_extension_classes=com.graphaware.server=/graphaware
->
+To use the timetree library you need to [download the jar](https://graphaware.com/products/), do the same as before and put the jar in the plugin folder `C:\Program Files\Neo4j CE 3.1.2\plugins`.
 
-- To use the timetree library you need to [download the jar](https://graphaware.com/products/), do the same as before and put the jar in the plugin folder `C:\Program Files\Neo4j CE 3.1.2\plugins`.
-
-- Then restart the neo4j server and log into your db.
+Then restart the neo4j server and log into your db.
 
 The next step is to run a query try the following and see that it creates a tree with nodes, relationships and properties for `yyyy-mm-dd`.
 
@@ -95,7 +92,6 @@ Note the numbers in the query, Neo4j measures the time in milliseconds between t
 #### Reasons for not using this approach
 
 I didnt use these plugins because it would'nt work in this project, I chose to not use tools and go with a simpler design because I was having issues with getting the framework to build the nodes that had `weekday names` that matched the date nodes, I also had an issue to change the `resolution : default is day` to `hours`. I felt it was better then to go with a simple prototype design for the day & time representation in the database.
-
 
 ## References
 
