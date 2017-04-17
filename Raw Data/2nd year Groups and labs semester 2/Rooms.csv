@@ -1,0 +1,165 @@
+id,room,desc
+1,CCAM107,107										
+2,CCAM116,Print 117      	                            
+3,CCAM117,Print                                      
+4,CCAM120,PrintWS                                   
+5,CCAM121,PrintWS                                   
+6,CCAM122,PrintWS                                   
+7,CCAM123,PrintWS                                   
+8,CCAM124,PrintWS                                   
+9,CCAM125,PrintWS                                   
+10,CCAM126,PrintWS                                   
+11,CCAM209,Studio                                   
+12,CCAM210,Studio                                   
+13,CCAM211,Studio                                   
+14,CCAM212,Studio                                   
+15,CCAM213,Studio                                         
+16,CCAM214,Studio                                   
+17,CCAM218,Studio                                   
+18,CCAM221,Studio                                   
+19,CCAM222,Studio                                   
+20,CCAM223,Studio Space                               
+21,CCAM228,Studio                                     
+22,CCAM229,Studio                                     
+23,CCAM230,Studio                                     
+24,CCAM233,ComputerLab                                
+25,CCAM234,ComputerLab                                
+26,CCAM244,Lab 2                                      
+27,CCAM262,ComLab1                                    
+28,CCAM263,ComLab1                                    
+29,CCAM300,MeetRm                                    
+30,CCAM301,Studio                                    
+31,CCAM302,Studio                                    
+32,CCAM303,Studio                                    
+33,CCAM304,Studio                                    
+34,CCAM305,Studio                                    
+35,CCAM306,Studio                                    
+36,CCAM307,Studio                                    
+37,CCAM308,Studio                                    
+38,CCAM317a,Studio                                  
+39,CCAM317b,Studio                                  
+40,CCAM317c,Studio                                  
+41,CCAM317d,Studio                                  
+42,CCAM321,Studio                                    
+43,CCAM322,Studio                                    
+44,CCAM323,Studio                                    
+45,CCAM324,Studio                                    
+46,CCAM325,Studio                                    
+47,CCAM326,Studio                                    
+48,CCAM345,Studio                                    
+49,CCAM346,Studio                                    
+50,CCAM347,Studio                                    
+51,CCAM348,Studio                                    
+52,CCAM349,Studio                                    
+53,CCAM350,Studio                                    
+54,CCAM351,Studio                                    
+55,CCAM352,Studio                                    
+56,CCAMPF1,Prefab1                                   
+57,CCAMPF2,Prefab2                                   
+58,CCAMPF3,Prefab3					               
+59,CCAMPF4,Prefab4                                   
+60,G Prefab 02,                                     
+61,G Prefab 03,                                     
+62,G Prefab 04,                                     
+63,G Prefab 05,                                     
+64,G Prefab 06,                                     
+65,G Prefab 07,                                     
+66,G Prefab 08,                                     
+67,G Prefab 09,                                     
+68,G Prefab 10,Exam Room                              
+69,G Prefab 18,                                        
+70,G0141,AMT Lab                                      
+71,G0143,Eng Sci Lab                                  
+72,G0145,                                           
+73,G0153,                                           
+74,G0154,                                           
+75,G0156,                                           
+76,G0157,                                           
+77,G0158,                                           
+78,G0159,                                           
+79,G0162,                                           
+80,G0165,                                           
+81,G0208,                                           
+82,G0209,                                           
+83,G0223,                                           
+84,G0224,Computer and CAD Lab                         
+85,G0226,Project Room                                 
+86,G0227,Computer and CAD Lab                         
+87,G0229,Project Room                                 
+88,G0230,Project Room                                 
+89,G0231b,                                             
+90,G0304,CR6 - General Science Lab                    
+91,G0347,Exam Room                                    
+92,G0351,                                            
+93,G0364,                                            
+94,G0365,                                            
+95,G0366,                                            
+96,G0367a,                                             
+97,G0367b,                                            
+98,G0368,                                              
+99,G0369,                                              
+100,G0370,                                           
+101,G0373,                                           
+102,G0374,                                           
+103,G0375,                                           
+104,G0376,                                           
+105,G0377,                                           
+106,G0378,                                           
+107,G0379,                                           
+108,G0380,                                           
+109,G0436,CR5                                          
+110,G0470,Computing Practical Lab                      
+111,G0471,Med Lab                                      
+112,G0478,Green Lab                                    
+113,G0479,Blue Lab                                     
+114,G0480,CR7                                          
+115,G0481,CR4                                          
+116,G0482,CR3                                          
+117,G0483,CR2                                          
+118,G0484,CR1                                          
+119,G0506,Computer Lab                                 
+120,G0507,Computer Lab                                 
+121,G0508,Computer Lab                                 
+122,G0511,Lab                                          
+123,G0550,Unit 6                                       
+124,G0603,Lab                                          
+125,G0610,Organic Chemistry Lab                        
+126,G0615,Unit 9                                       
+127,G0616,Unit 1                                       
+128,G0623,Unit 3                                       
+129,G0625,Unit 4                                       
+130,G0626,Unit 5                                       
+131,G0629,Microbiology Lab                             
+132,G0632,Retail Lab                                   
+133,G0637,Unit 10                                      
+134,G0701,Physics Lab                                  
+135,G0702,Physics Lab                                  
+136,G0703,Physics Lab                                  
+137,G0704,Physics Lab                                  
+138,G0707,CAD/CAM Lab                                  
+139,G0813,Computer Lab/PBL                             
+140,G0834,Computer Lab/PBL                             
+141,G0835,Info Technology Computer Lab                 
+142,G0837,                                             
+143,G0843,Unit 12                                      
+144,G0903,                                             
+145,G0907,Language Lab                                 
+146,G0910,Language Lab                                 
+147,G0938,                                             
+148,G0939,                                            
+149,G0940,                                             
+150,G0941,                                             
+151,G0994,                                             
+152,G0995,                                             
+153,G0996,                                             
+154,G0997,                                             
+155,G1000,Blue Theatre                                 
+156,G1031,                                             
+157,G1032,                                             
+158,G1033,                                             
+159,G1034,                                             
+160,G1035,                                             
+161,G1036,                                             
+162,G1039,                                             
+163,G1041,Video Conference Room 
+

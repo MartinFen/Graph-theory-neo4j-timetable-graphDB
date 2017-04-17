@@ -1,0 +1,318 @@
+CCAM104 WhiteRm
+CCAM107 107 
+CCAM115 FASRm 
+CCAM116 Print 117 
+CCAM117 Print 
+CCAM120 PrintWS 
+CCAM121 PrintWS 
+CCAM122 PrintWS 
+CCAM123 PrintWS 
+CCAM124 PrintWS 
+CCAM125 PrintWS 
+CCAM126 PrintWS 
+CCAM127a Sculpt127 
+CCAM136 SculptWS 
+CCAM136a SculptWS 
+CCAM141 CeramSt 
+CCAM141 CeramWS 
+CCAM141 CeramWS 
+CCAM142 WoodWS 
+CCAM148 GreenRm 
+CCAM148 OrangeRm 
+CCAM150 Chapel 
+CCAM158 ceramTR 
+CCAM162 WellpkRm 
+CCAM163 WellpkRm 
+CCAM209 Studio 
+CCAM210 Studio 
+CCAM211 Studio 
+CCAM212 Studio 
+CCAM213 
+CCAM214 Studio 
+CCAM218 Studio 
+CCAM219 RedRm 
+CCAM220 RedRm 
+CCAM221 Studio 
+CCAM222 Studio 
+CCAM223 Studio Space 
+CCAM225 Post Grad 
+CCAM228 Studio 
+CCAM229 Studio 
+CCAM230 Studio 
+CCAM233 ComputerLab 
+CCAM234 ComputerLab 
+CCAM235 EdSuite1 
+CCAM236 EdSuite2 
+CCAM237 EdSuite3 
+CCAM242 PhotoPrint 
+CCAM243 PhotoPrint 
+CCAM244 Lab 2 
+CCAM253 BlackRm 
+CCAM254 DarkRm 
+CCAM255 PrintStore 
+CCAM256 Sound 
+CCAM257 Sound257 
+CCAM258 Sound257 
+CCAM261 BlueRm 
+CCAM262 ComLab1 
+CCAM263 ComLab1 
+CCAM300 MeetRm 
+CCAM301 Studio 
+CCAM302 Studio 
+CCAM303 Studio 
+CCAM304 Studio 
+CCAM305 Studio 
+CCAM306 Studio 
+CCAM307 Studio 
+CCAM308 Studio 
+CCAM309 TextileWS 
+CCAM309 TextileWS 
+CCAM310 TextileLab 
+CCAM311 TextileLab 
+CCAM312 TextileLab 
+CCAM317a Studio 
+CCAM317b Studio 
+CCAM317c Studio 
+CCAM317d Studio 
+CCAM317e Paint317 
+CCAM317f Paint317 
+CCAM320 Ceram 
+CCAM321 Studio 
+CCAM322 Studio 
+CCAM323 Studio 
+CCAM324 Studio 
+CCAM325 Studio 
+CCAM326 Studio 
+CCAM344 LifeRm 
+CCAM345 Studio 
+CCAM346 Studio 
+CCAM347 Studio 
+CCAM348 Studio 
+CCAM349 Studio 
+CCAM350 Studio 
+CCAM351 Studio 
+CCAM352 Studio 
+CCAM401 WeaveRm 
+CCAM402 TextileSt 
+CCAMCeram107 
+CCAMHall-A 
+CCAMHall-B 
+CCAMHall-C 
+CCAMPF1 Prefab1 
+CCAMPF2 Prefab2 
+CCAMPF3 Prefab3 
+CCAMPF4 Prefab4 
+CCAMSculpt127 
+Connacht Hotel 
+G Prefab 02 
+G Prefab 03 
+G Prefab 04 
+G Prefab 05 
+G Prefab 06 
+G Prefab 07 
+G Prefab 08 
+G Prefab 09 
+G Prefab 10 Exam Room 
+G Prefab 18 
+G Reception Foyer New Building 
+G0130 Hydraulics Lab 
+G0131 Dissection Lab 
+G0141 AMT Lab 
+G0143 Eng Sci Lab 
+G0145 
+G0148 Concrete Lab 
+G0150 Civil Structures Lab 
+G0152 Environmental Lab 
+G0153 
+G0154 
+G0156 
+G0157 
+G0158 
+G0159 
+G0162 
+G0165 
+G0208 
+G0209 
+G0210 Nimbus Lab 
+G0213b Burren Lab 
+G0215 Arann Lab 
+G0217 Corrib Lab 
+G0223 
+G0224 Computer and CAD Lab 
+G0225 Civil Eng Project Room 
+G0226 Project Room 
+G0227 Computer and CAD Lab 
+G0228 Architectual Studio 
+G0229 Project Room 
+G0230 Project Room 
+G0231b 
+G0301 Aquatic Ecology Lab 
+G0304 CR6 - General Science Lab 
+G0306 Biology Lab 
+G0309 Biology Lab 
+G0310 Biology Lab 
+G0315a Physicst Lab 
+G0315b Physicst Lab 
+G0315c Physicst Lab 
+G0318 Aquatic Science Lab 
+G0347 Exam Room 
+G0351 
+G0364 
+G0365 
+G0366 
+G0367a 
+G0367b 
+G0368 
+G0369 
+G0370 
+G0373 
+G0374 
+G0375 
+G0376 
+G0377 
+G0378 
+G0379 
+G0380 
+G0402 Biochemistry Lab 
+G0405 Biochem/Chemistry Lab 
+G0411 Chromotography Lab 
+G0422 Electro Chem Lab 
+G0436 CR5 
+G0450 Grey Lab 
+G0451 Microbiology Lab 
+G0470 Computing Practical Lab 
+G0471 Med Lab 
+G0475 Molecular Biology Lab 
+G0476 Food Science Lab/Wine Room 
+G0478 Green Lab 
+G0479 Blue Lab 
+G0480 CR7 
+G0481 CR4 
+G0482 CR3 
+G0483 CR2 
+G0484 CR1 
+G0501 Electronic CAD Lab 
+G0502 Physics Lab 
+G0506 Computer Lab 
+G0507 Computer Lab 
+G0508 Computer Lab 
+G0511 Lab 
+G0526/7 City of Galway Training Rest &amp; Bar 
+G0526/7 IQ Bar 
+G0550 Unit 6 
+G0552 Demo Theatre 
+G0559 Unit 8 Pastry Kitchen 
+G0560 Accommodation and Front Office Suite 
+G0602 Chemistry Lab 
+G0603 Lab 
+G0610 Organic Chemistry Lab 
+G0615 Unit 9 
+G0616 Unit 1 
+G0623 Unit 3 
+G0625 Unit 4 
+G0626 Unit 5 
+G0629 Microbiology Lab 
+G0632 Retail Lab 
+G0637 Unit 10 
+G0701 Physics Lab 
+G0702 Physics Lab 
+G0703 Physics Lab 
+G0704 Physics Lab 
+G0707 CAD/CAM Lab 
+G0724b W/S 
+G0724C W/S CNC/Pen Factory 
+G0724d Energy Fluid Lab 
+G0728a Garage 
+G0731 Wiring and Motor Control Installation Workshop 
+G0736 Electrical and Electronic Projects Lab 
+G0813 Computer Lab/PBL 
+G0827 Electronics Lab 
+G0828 Electronics Lab 
+G0830 Electronics Lab 
+G0832 Electronics Lab 
+G0834 Computer Lab/PBL 
+G0835 Info Technology Computer Lab 
+G0837 
+G0841 Wine Geese Training Bar 
+G0842 Connemara Upstairs Training Rest 
+G0843 Unit 12 
+G0903 
+G0907 Language Lab 
+G0910 Language Lab 
+G0938 
+G0939 
+G0940 
+G0941 
+G0994 
+G0995 
+G0996 
+G0997 
+G1000 Blue Theatre 
+G1031 
+G1032 
+G1033 
+G1034 
+G1035 
+G1036 
+G1039 
+G1041 Video Conference Room 
+LETT Computer Lab 1 
+LETT Computer Lab 2 
+LETT Design Studio 1 
+LETT Design Studio 2 
+LETT Design Studio 3 
+LETT Lecture Theatre 1 
+LETT Lecture Theatre 2 
+LETT Lecture Theatre 3 
+LETT Lecture Theatre 4 
+LETT Lecture Theatre 5 
+LETT Machine Hall 1A 
+LETT Machine Hall 1B 
+LETT Machine Hall 2 
+Letterfrack Bench Room 1 
+Letterfrack Bench Room 2 
+MayoCL-B117-Unix 
+MayoCL-B208-cl4 
+MayoCL-Net 
+MayoCL-R202-CAD 
+MayoCL-Y100-cl6 
+MayoCL-Y103-cl5 
+MayoCL-Y200-cl2 
+MayoCL-Y201-cl1 
+MayoLab-B017-CH 
+MayoLab-G102-Digmes 
+MayoLab-R200-DO 
+MayoLab-Y016-A3 
+MayoLab-Y017-A1 
+MayoLab-Y018-A2 
+MayoMR-P106-Board 
+MayoNLab-P011-Anat 
+MayoNLab-P102-Taffe 
+MayoNLab-P104-student room 
+MayoNLab-P105-living 
+MayoNLab-P204-VHen 
+MayoNLab-Y011-N/Gale 
+Mayo-Pool 
+MayoSR-B003-MB 
+MayoSR-B027 
+MayoSR-B030 (sr09) 
+MayoSR-B120-(sr12) 
+MayoSR-B121 (sr10) 
+MayoSR-B122- Lang 
+MayoSR-G104-(sr8) 
+MayoSR-P002-Clear 
+MayoSR-P004-Horan 
+MayoSR-P005-Healy 
+MayoSR-P009-McManus 
+MayoSR-P110-Pinel 
+MayoSR-P114-OCar 
+MayoSR-P201-Erris 
+MayoSR-R104-Davitt 
+MayoSR-Y002-(sr1) 
+MayoSR-Y007-(sr14) 
+MayoSR-Y104-(sr16) 
+MayoSR-Y106-(sr15) 
+MayoSR-Y108-Browne 
+MayoSt Marys Hall 
+NUIG 
+NUIG 

@@ -39,7 +39,7 @@ The nodes of the timetabling graph are as follows,
 
 #### Labels
 
-#### Aggregate functions
+#### Functions
 
 #### Neo4j
 

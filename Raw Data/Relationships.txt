@@ -1,0 +1,16 @@
+Match (a: Day {Day:"mon"}), (b: Day {Day:"tue"}) 
+Create()-[:In_Use]->() Return , 
+
+//Connect mon to tue
+Match (a: Day {Day:"mon"}), (b: Day {Day:"tue"})
+Create(a)-[:Next]->(b) Return a,b
+
+//Conect tue to wen
+Match (a: Day {Day:"tue"}), (b: Day {Day:"wen"})
+Create(a)-[:Next]->(b) Return a,b
+
+Match (Lecture {name:"Ian"}), (Time {name:"mon"}) Create(Lecture)-[:Lecturing]->(Time) Return Lecture, Time
+
+Match (Module {name:"graph theory"}), (Time {name:"mon"}) Create(Module)-[:Tought_at]->(Time) Return Module, Time
+
+Match (Student {grp:"a"}), (Time {name:"mon"}) Create(Student)-[:Attends]->(Time) Return Student, Time

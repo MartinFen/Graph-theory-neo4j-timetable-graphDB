@@ -1,0 +1,4 @@
+LOAD CSV FROM "file:///C:people.csv" AS line
+MERGE (n:Person {id: toInteger(line[0])})
+SET n.name = line[1]
+RETURN n

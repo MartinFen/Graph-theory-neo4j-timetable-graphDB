@@ -1,0 +1,72 @@
+##################################
+Create Nodes
+##################################
+LOAD CSV WITH HEADERS FROM "file:///C:/CampusTidy.csv" AS csvLine
+CREATE (n:Campus {Department: csvLine.DepartmentName, name: csvLine.Campus})
+
+LOAD CSV WITH HEADERS FROM "file:///C:/CourseTidy.csv" AS csvLine
+CREATE (n:Course {courseid: csvLine.cid, coursename: csvLine.coursename, level: csvLine.level, Year: csvLine.year})
+
+LOAD CSV WITH HEADERS FROM "file:///C:/DaysTidy.csv" AS csvLine
+CREATE (n:Day {Day: csvLine.Day})
+
+LOAD CSV WITH HEADERS FROM "file:///C:/DepartmentTidy.csv" AS csvLine
+CREATE (n:Department {department: csvLine.Department})
+
+LOAD CSV WITH HEADERS FROM "file:///C:/GroupsTidy.csv" AS csvLine
+CREATE (n:Group {groupname: csvLine.GroupName})
+
+LOAD CSV WITH HEADERS FROM "file:///C:/LecturersTidy.csv" AS csvLine
+CREATE (n:Lecturer {title: csvLine.Title, surname: csvLine.Surname, firstname: csvLine.FName, campus: csvLine.Campus, extension: csvLine.Extension, contact: csvLine.Contact, email: csvLine.Email})
+
+LOAD CSV WITH HEADERS FROM "file:///C:/ModulesTidy.csv" AS csvLine
+CREATE (n:Module {modulename: csvLine.ModuleName, semester: csvLine.semester})
+
+LOAD CSV WITH HEADERS FROM "file:///C:/RoomsTidy.csv" AS csvLine
+CREATE (n:Room {roomname: csvLine.RoomName, description: csvLine.Description})
+
+LOAD CSV WITH HEADERS FROM "file:///C:/StudentTidy.csv" AS csvLine
+CREATE (n:Student {firstname: csvLine.FName, surname: csvLine.SName, sid: csvLine.StudentID, contact: csvLine.Contact})
+############################################################################
+#################################
+Create Relationships
+#################################
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Day_Relationships.csv" AS row
+MATCH (p1:Day {Day: toString(row[0])}), (p2:Day {Day: toString(row[1])})
+CREATE (p1)-[:Next]->(p2);
+
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Lecturer_Day_Relationships.csv" AS row
+MATCH (p1:Lecturer {firstname: toString(row[0])}), (p2:Day {Day: toString(row[1])})
+CREATE (p1)-[:Lecturing]->(p2);
+
+//Not done yet---------------------
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Module_Day_Relationships.csv" AS row
+MATCH (p1:Module {modulename: toString(row[0])}), (p2:Day {Day: toString(row[1])})
+CREATE (p1)-[:Tought_at]->(p2);
+###########################################################################
+#################################
+Set properties (Testing)
+#################################
+MATCH (n:Day)
+WHERE n.Day = "mon"
+SET n.timeslot1 = "9-10"
+SET n.timeslot1 = "10-11"
+SET n.timeslot1 = "11-12"
+SET n.timeslot1 = "12-13"
+SET n.timeslot1 = "13-14"
+SET n.timeslot1 = "14-15"
+SET n.timeslot1 = "15-16"
+SET n.timeslot1 = "16-17"
+SET n.timeslot1 = "17-18"
+###########################################################################
+#################################
+Queries (Testing)
+#################################
+//Return days Ian lectures at 9-10
+MATCH (n:Lecturer)-[r:Lecturing]->(d:Day)
+WHERE n.firstname = "Ian" And d.timeslot1 ="9-10"
+RETURN n,r,d
+###########################################################################
