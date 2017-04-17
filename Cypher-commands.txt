@@ -41,11 +41,22 @@ LOAD CSV FROM "file:///C:/Lecturer_Day_Relationships.csv" AS row
 MATCH (p1:Lecturer {firstname: toString(row[0])}), (p2:Day {Day: toString(row[1])})
 CREATE (p1)-[:Lecturing]->(p2);
 
-//Not done yet---------------------
 USING PERIODIC COMMIT
 LOAD CSV FROM "file:///C:/Module_Day_Relationships.csv" AS row
 MATCH (p1:Module {modulename: toString(row[0])}), (p2:Day {Day: toString(row[1])})
 CREATE (p1)-[:Tought_at]->(p2);
+
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Room_Day_Relationships.csv" AS row
+MATCH (p1:Room {roomname: toString(row[0])}), (p2:Day {Day: toString(row[1])})
+CREATE (p1)-[:In_Use]->(p2);
+
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Group_Day_Relationships.csv" AS row
+MATCH (p1:Group {groupname: toString(row[0])}), (p2:Day {Day: toString(row[1])})
+CREATE (p1)-[:In_Class]->(p2);
+
+
 ###########################################################################
 #################################
 Set properties (Testing)
