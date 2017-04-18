@@ -56,6 +56,52 @@ LOAD CSV FROM "file:///C:/Group_Day_Relationships.csv" AS row
 MATCH (p1:Group {groupname: toString(row[0])}), (p2:Day {Day: toString(row[1])})
 CREATE (p1)-[:In_Class]->(p2);
 
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Student_Group_Relationships.csv" AS row
+MATCH (p1:Student {sid: toString(row[0])}), (p2:Group {groupname: toString(row[1])})
+CREATE (p1)-[:In_Group]->(p2);
+
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Student_Campus_Relationships.csv" AS row
+MATCH (p1:Student {sid: toString(row[0])}), (p2:Campus {name: toString(row[1])})
+CREATE (p1)-[:In_Campus]->(p2);
+
+//Need to add from here down--------------------------------------------------------------
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Campus_Rooms_Relationships.csv" AS row
+MATCH (p1:Campus {name: toString(row[0])}), (p2:Room {roomname: toString(row[1])})
+CREATE (p1)-[:Contains_Room]->(p2);
+
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Lecturer_Campus_Relationships.csv" AS row
+MATCH (p1:Lecturer {firstname: toString(row[0])}), (p2:Campus {name: toString(row[1])})
+CREATE (p1)-[:Lecturer_In]->(p2);
+
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Campus_Department_Relationships.csv" AS row
+MATCH (p1:Department {department: toString(row[0])}), (p2:Campus {name: toString(row[1])})
+CREATE (p1)-[:Department_In]->(p2);
+
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Lecturer_Department_Relationships.csv" AS row
+MATCH (p1:Lecturer {firstname: toString(row[0])}), (p2:Department {department: toString(row[1])})
+CREATE (p1)-[:Lecturer_Department]->(p2);
+
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Department_Course_Relationships.csv" AS row
+MATCH (p1:Department {department: toString(row[0])}), (p2:Course {courseid: toString(row[1])})
+CREATE (p1)-[:Runs]->(p2);
+
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Course_Module_Relationships.csv" AS row
+MATCH (p1:Course {courseid: toString(row[0])}), (p2:Module {modulename: toString(row[1])})
+CREATE (p1)-[:Contains]->(p2);
+
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Student_Course_Relationships.csv" AS row
+MATCH (p1:Student {sid: toString(row[0])}), (p2:Course {courseid: toString(row[1])})
+CREATE (p1)-[:Attends]->(p2);
+
 
 ###########################################################################
 #################################
