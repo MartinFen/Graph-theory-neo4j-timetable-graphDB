@@ -4,33 +4,105 @@ Create Nodes
 LOAD CSV WITH HEADERS FROM "file:///C:/CampusTidy.csv" AS csvLine
 CREATE (n:Campus {Department: csvLine.DepartmentName, name: csvLine.Campus})
 
-LOAD CSV WITH HEADERS FROM "file:///C:/CourseTidy.csv" AS csvLine
-CREATE (n:Course {courseid: csvLine.cid, coursename: csvLine.coursename, level: csvLine.level, Year: csvLine.year})
-
-LOAD CSV WITH HEADERS FROM "file:///C:/DaysTidy.csv" AS csvLine
-CREATE (n:Day {Day: csvLine.Day})
-
 LOAD CSV WITH HEADERS FROM "file:///C:/DepartmentTidy.csv" AS csvLine
 CREATE (n:Department {department: csvLine.Department})
 
-LOAD CSV WITH HEADERS FROM "file:///C:/GroupsTidy.csv" AS csvLine
-CREATE (n:Group {groupname: csvLine.GroupName})
-
-LOAD CSV WITH HEADERS FROM "file:///C:/LecturersTidy.csv" AS csvLine
-CREATE (n:Lecturer {title: csvLine.Title, surname: csvLine.Surname, firstname: csvLine.FName, campus: csvLine.Campus, extension: csvLine.Extension, contact: csvLine.Contact, email: csvLine.Email})
-
-LOAD CSV WITH HEADERS FROM "file:///C:/ModulesTidy.csv" AS csvLine
-CREATE (n:Module {modulename: csvLine.ModuleName, semester: csvLine.semester})
+LOAD CSV WITH HEADERS FROM "file:///C:/CourseTidy.csv" AS csvLine
+CREATE (n:Course {courseid: csvLine.cid, coursename: csvLine.coursename, level: csvLine.level, Year: csvLine.year})
 
 LOAD CSV WITH HEADERS FROM "file:///C:/RoomsTidy.csv" AS csvLine
 CREATE (n:Room {roomname: csvLine.RoomName, description: csvLine.Description})
 
+LOAD CSV WITH HEADERS FROM "file:///C:/LecturersTidy.csv" AS csvLine
+CREATE (n:Lecturer {title: csvLine.Title, surname: csvLine.Surname, firstname: csvLine.FName, campus: csvLine.Campus, extension: csvLine.Extension, contact: csvLine.Contact, email: csvLine.Email})
+
 LOAD CSV WITH HEADERS FROM "file:///C:/StudentTidy.csv" AS csvLine
 CREATE (n:Student {firstname: csvLine.FName, surname: csvLine.SName, sid: csvLine.StudentID, contact: csvLine.Contact})
+
+LOAD CSV WITH HEADERS FROM "file:///C:/ModulesTidy.csv" AS csvLine
+CREATE (n:Module {modulename: csvLine.ModuleName, semester: csvLine.semester})
+
+LOAD CSV WITH HEADERS FROM "file:///C:/GroupsTidy.csv" AS csvLine
+CREATE (n:Group {groupname: csvLine.GroupName})
+
+LOAD CSV WITH HEADERS FROM "file:///C:/TimeSlotTidy.csv" AS csvLine
+CREATE (n:Timeslot {slotid: csvLine.SlotId1})
+
 ############################################################################
 #################################
 Create Relationships
 #################################
+
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Campus_Department_Relationships.csv" AS row
+MATCH (p1:Department {department: toString(row[0])}), (p2:Campus {name: toString(row[1])})
+CREATE (p1)-[:Department_In]->(p2);
+
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Lecturer_Timeslot_Relationships.csv" AS row
+MATCH (p1:Lecturer {firstname: toString(row[0])}), (p2:Timeslot {slotid: toString(row[1])})
+CREATE (p1)-[:Lecturing]->(p2);
+
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Module_Timeslot_Relationships.csv" AS row
+MATCH (p1:Module {modulename: toString(row[0])}), (p2:Timeslot {slotid: toString(row[1])})
+CREATE (p1)-[:Tought_at]->(p2);
+
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Room_Timeslot_Relationships.csv" AS row
+MATCH (p1:Room {roomname: toString(row[0])}), (p2:Timeslot {slotid: toString(row[1])})
+CREATE (p1)-[:In_Use]->(p2);
+
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Group_Timeslot_Relationships.csv" AS row
+MATCH (p1:Group {groupname: toString(row[0])}), (p2:Timeslot {slotid: toString(row[1])})
+CREATE (p1)-[:In_Class]->(p2);
+
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Student_Group_Relationships.csv" AS row
+MATCH (p1:Student {sid: toString(row[0])}), (p2:Group {groupname: toString(row[1])})
+CREATE (p1)-[:In_Group]->(p2);
+
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Student_Campus_Relationships.csv" AS row
+MATCH (p1:Student {sid: toString(row[0])}), (p2:Campus {name: toString(row[1])})
+CREATE (p1)-[:In_Campus]->(p2);
+
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Campus_Rooms_Relationships.csv" AS row
+MATCH (p1:Campus {name: toString(row[0])}), (p2:Room {roomname: toString(row[1])})
+CREATE (p1)-[:Contains_Room]->(p2);
+
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Lecturer_Campus_Relationships.csv" AS row
+MATCH (p1:Lecturer {firstname: toString(row[0])}), (p2:Campus {name: toString(row[1])})
+CREATE (p1)-[:Lecturer_In]->(p2);
+
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Lecturer_Department_Relationships.csv" AS row
+MATCH (p1:Lecturer {firstname: toString(row[0])}), (p2:Department {department: toString(row[1])})
+CREATE (p1)-[:Lecturer_Department]->(p2);
+
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Department_Course_Relationships.csv" AS row
+MATCH (p1:Department {department: toString(row[0])}), (p2:Course {courseid: toString(row[1])})
+CREATE (p1)-[:Runs]->(p2);
+
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Course_Module_Relationships.csv" AS row
+MATCH (p1:Course {courseid: toString(row[0])}), (p2:Module {modulename: toString(row[1])})
+CREATE (p1)-[:Contains]->(p2);
+
+USING PERIODIC COMMIT
+LOAD CSV FROM "file:///C:/Student_Course_Relationships.csv" AS row
+MATCH (p1:Student {sid: toString(row[0])}), (p2:Course {courseid: toString(row[1])})
+CREATE (p1)-[:Attends]->(p2);
+
+
+//Not in use--------------------------------------------------------------
+LOAD CSV WITH HEADERS FROM "file:///C:/DaysTidy.csv" AS csvLine
+CREATE (n:Day {Day: csvLine.Day})
+
 USING PERIODIC COMMIT
 LOAD CSV FROM "file:///C:/Day_Relationships.csv" AS row
 MATCH (p1:Day {Day: toString(row[0])}), (p2:Day {Day: toString(row[1])})
@@ -56,54 +128,6 @@ LOAD CSV FROM "file:///C:/Group_Day_Relationships.csv" AS row
 MATCH (p1:Group {groupname: toString(row[0])}), (p2:Day {Day: toString(row[1])})
 CREATE (p1)-[:In_Class]->(p2);
 
-USING PERIODIC COMMIT
-LOAD CSV FROM "file:///C:/Student_Group_Relationships.csv" AS row
-MATCH (p1:Student {sid: toString(row[0])}), (p2:Group {groupname: toString(row[1])})
-CREATE (p1)-[:In_Group]->(p2);
-
-USING PERIODIC COMMIT
-LOAD CSV FROM "file:///C:/Student_Campus_Relationships.csv" AS row
-MATCH (p1:Student {sid: toString(row[0])}), (p2:Campus {name: toString(row[1])})
-CREATE (p1)-[:In_Campus]->(p2);
-
-//Need to add from here down--------------------------------------------------------------
-USING PERIODIC COMMIT
-LOAD CSV FROM "file:///C:/Campus_Rooms_Relationships.csv" AS row
-MATCH (p1:Campus {name: toString(row[0])}), (p2:Room {roomname: toString(row[1])})
-CREATE (p1)-[:Contains_Room]->(p2);
-
-USING PERIODIC COMMIT
-LOAD CSV FROM "file:///C:/Lecturer_Campus_Relationships.csv" AS row
-MATCH (p1:Lecturer {firstname: toString(row[0])}), (p2:Campus {name: toString(row[1])})
-CREATE (p1)-[:Lecturer_In]->(p2);
-
-USING PERIODIC COMMIT
-LOAD CSV FROM "file:///C:/Campus_Department_Relationships.csv" AS row
-MATCH (p1:Department {department: toString(row[0])}), (p2:Campus {name: toString(row[1])})
-CREATE (p1)-[:Department_In]->(p2);
-
-USING PERIODIC COMMIT
-LOAD CSV FROM "file:///C:/Lecturer_Department_Relationships.csv" AS row
-MATCH (p1:Lecturer {firstname: toString(row[0])}), (p2:Department {department: toString(row[1])})
-CREATE (p1)-[:Lecturer_Department]->(p2);
-
-USING PERIODIC COMMIT
-LOAD CSV FROM "file:///C:/Department_Course_Relationships.csv" AS row
-MATCH (p1:Department {department: toString(row[0])}), (p2:Course {courseid: toString(row[1])})
-CREATE (p1)-[:Runs]->(p2);
-
-USING PERIODIC COMMIT
-LOAD CSV FROM "file:///C:/Course_Module_Relationships.csv" AS row
-MATCH (p1:Course {courseid: toString(row[0])}), (p2:Module {modulename: toString(row[1])})
-CREATE (p1)-[:Contains]->(p2);
-
-USING PERIODIC COMMIT
-LOAD CSV FROM "file:///C:/Student_Course_Relationships.csv" AS row
-MATCH (p1:Student {sid: toString(row[0])}), (p2:Course {courseid: toString(row[1])})
-CREATE (p1)-[:Attends]->(p2);
-
-
-###########################################################################
 #################################
 Set properties (Testing)
 #################################
@@ -118,7 +142,7 @@ SET n.timeslot1 = "14-15"
 SET n.timeslot1 = "15-16"
 SET n.timeslot1 = "16-17"
 SET n.timeslot1 = "17-18"
-###########################################################################
+
 #################################
 Queries (Testing)
 #################################
@@ -126,4 +150,5 @@ Queries (Testing)
 MATCH (n:Lecturer)-[r:Lecturing]->(d:Day)
 WHERE n.firstname = "Ian" And d.timeslot1 ="9-10"
 RETURN n,r,d
-###########################################################################
+
+//Not in use--------------------------------------------------------------------------------
