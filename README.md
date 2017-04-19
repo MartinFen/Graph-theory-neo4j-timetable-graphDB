@@ -4,35 +4,46 @@
 ###### Martin Fennell, G00291266
 
 ## Introduction
-This project is for my 3rd year module graph theory which I am using neo4j to represent a timetabling system for a college in graph database form. The project will show timetabling system in graph form and the releationships in the graph between the different parts of the TT system.
+This project is for my 3rd year module graph theory which I am using neo4j to represent a prototype timetabling system for a college in graph database form. The project is a small prototype of my current semester with some mildly tidied data that I scraped from the college timetableing website and the gmit website.
 
 #### Prerequisits (Getting started)
 
+Below are the tools you need to use this project
+
 1. [Neo4j](https://neo4j.com/download/) - Website where to download neo4j graph database
 
-2. [Regex editor](http://regexr.com/) - Online Regex editor 
+2. [Regex editor](http://regexr.com/) - Online Regex editor (This is optional as info is supplied)
 
-3. [Notepad++](https://notepad-plus-plus.org/) - Text editor that can use regex and create csv files
+3. [Notepad++](https://notepad-plus-plus.org/) - Text editor that can use regex and create/use csv files
 
 #### Aims
 
-> The aims of the project are to show that I could reperesent a prototype for a timetabling system in the form of a graph database 
+The aims of the project are to show I can reperesent a prototype timetabling system using the neo4j software and that I am able to learn how to us it capable to use the software
 
 ## Database
 
 #### Nodes
 
-The nodes of the timetabling graph are as follows,
+The nodes of the database are as follows,
 
 | Node | Description |
 | ------ | ------ |
-| Course | This node contains info on courses the college runs |
-| Lecturers | This node contains info on lecturers and their contact info |
-| Rooms | This node contains info on the Rooms of the college |
-| Time slots | This node contains info on the times that classes will be on at |
-| Student groups | This node will contain info on the student groups of an course |
-| Modules | This node will contain info on the modules of a course |
+| Campus | node(s) to represent the campuses of the college |
+| Course | node(s) to represent the course(s) of the college |
+| Department | node(s) to represent the department(s) of the college |
+| Lecturer | node(s) to represent the lecturer(s) of the college |
+| Rooms | node(s) to represent the room(s) in a campus |
+| Time slots | node(s) to represent the times(s) that classes were in session |
+| Group | node(s) to represent the group(s) in a course |
+| Module | node(s) to represent the modules(s) of a course |
+| Student | node(s) to represent the students(s) of the college |
 
+To create the nodes I used a cypher command called [Load CSV]() which allowed me to store the data I scraped in csv files
+then load the data in and create a group of nodes. The command I used to create lecturers is as follows,
+```
+LOAD CSV WITH HEADERS FROM "file:///C:/LecturersTidy.csv" AS csvLine
+CREATE (n:Lecturer {title: csvLine.Title, surname: csvLine.Surname, firstname: csvLine.FName, campus: csvLine.Campus, extension: csvLine.Extension, contact: csvLine.Contact, email: csvLine.Email})
+```
 #### Properties
 
 #### Relationships
