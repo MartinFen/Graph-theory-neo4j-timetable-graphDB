@@ -1,0 +1,28 @@
+//Find out how many nodes are in the db and count how many relationships each node has
+start n=node(*)
+match (n)-[r]-()
+return n, count(r) as rel_count
+order by rel_count desc
+
+//Count how many leaf nodes are in the db
+START n=node(*) 
+MATCH (n)-[r*]->(l)
+WHERE NOT((l)-->()) 
+RETURN DISTINCT LABELS(l) as Nodes, COUNT(l) as Number_Of_Leaf_Nodes;
+
+//How many times does Ian teach in a week
+MATCH (a:Lecturer)-[:Lecturing]->(Timeslot)
+Where a.firstname = "Ian"
+RETURN a as Lecturer,count(*) AS Classes_Weekly
+
+//Find all lecturers lecturing on a monday
+MATCH (n:Lecturer)-[:Lecturing]->(m:Timeslot) WHERE m.slotid contains 'mon' 
+RETURN n,m
+
+//Shortest path between Ian and Deirdre
+MATCH p=shortestPath((l:Lecturer {firstname:"Ian"})-[*]-(n:Lecturer {firstname:"Deirdre"}))
+RETURN p
+
+//When are lecturers lecturing at the same time
+MATCH p=(l:Lecturer)-[:Lecturing]-()-[]-(n:Lecturer)
+RETURN p

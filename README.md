@@ -6,6 +6,10 @@
 ## Introduction
 This project is for my 3rd year module graph theory which I am using neo4j to represent a prototype timetabling system for a college in graph database form. The project is a small prototype of my current semester with some mildly tidied data that I scraped from the college timetableing website and the gmit website.
 
+#### Aims
+
+The aims of the project are to show I can reperesent a prototype timetabling system using the neo4j software and that I am able to learn how to us it capable to use the software
+
 #### Prerequisits (Getting started)
 
 Below are the tools you need to use this project
@@ -16,17 +20,15 @@ Below are the tools you need to use this project
 
 3. [Notepad++](https://notepad-plus-plus.org/) - Text editor that can use regex and create/use csv files
 
-#### Aims
-
-The aims of the project are to show I can reperesent a prototype timetabling system using the neo4j software and that I am able to learn how to us it capable to use the software
-
 ## Database
 
 #### Nodes
 
+Nodes are a way of storing and entity in neo4j so a person is an entity.
+
 The nodes of the database are as follows,
 
-| Node | Description |
+| Node(Node label) | Description |
 | ------ | ------ |
 | Campus | node(s) to represent the campuses of the college |
 | Course | node(s) to represent the course(s) of the college |
@@ -39,14 +41,30 @@ The nodes of the database are as follows,
 | Student | node(s) to represent the students(s) of the college |
 
 To create the nodes I used a cypher command called [Load CSV]() which allowed me to store the data I scraped in csv files
-then load the data in and create a group of nodes. The command I used to create lecturers is as follows,
+then load the data in and create a group of nodes. An example command I used to create nodes is as follows,
 ```
 LOAD CSV WITH HEADERS FROM "file:///C:/LecturersTidy.csv" AS csvLine
 CREATE (n:Lecturer {title: csvLine.Title, surname: csvLine.Surname, firstname: csvLine.FName, campus: csvLine.Campus, extension: csvLine.Extension, contact: csvLine.Contact, email: csvLine.Email})
 ```
 #### Properties
 
+Properties are inside nodes and are used to contain data.
+
+as seen below,
+
+| Property || Description |
+| ------ || ------ |
+| firstname || property that contains data such as a lecturers first name|
+
+The properties of the lecture nodes were created along with the nodes using the th [load CSV]() command as follows,
+```
+LOAD CSV WITH HEADERS FROM "file:///C:/LecturersTidy.csv" AS csvLine
+CREATE (n:Lecturer {title: csvLine.Title, surname: csvLine.Surname, firstname: csvLine.FName, campus: csvLine.Campus, extension: csvLine.Extension, contact: csvLine.Contact, email: csvLine.Email})
+```
+
 #### Relationships
+
+Relationships are the way that nodes can be connected together
 
 #### Labels
 
