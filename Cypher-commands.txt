@@ -1,8 +1,9 @@
 ##################################
-Create Nodes
+Create Nodes and Constraints (Copy each paragraph seperatly)
 ##################################
+
 LOAD CSV WITH HEADERS FROM "file:///C:/CampusTidy.csv" AS csvLine
-CREATE (n:Campus {Department: csvLine.DepartmentName, name: csvLine.Campus})
+CREATE (n:Campus {name: csvLine.Campus})
 
 LOAD CSV WITH HEADERS FROM "file:///C:/DepartmentTidy.csv" AS csvLine
 CREATE (n:Department {department: csvLine.Department})
@@ -26,11 +27,34 @@ LOAD CSV WITH HEADERS FROM "file:///C:/GroupsTidy.csv" AS csvLine
 CREATE (n:Group {groupname: csvLine.GroupName})
 
 LOAD CSV WITH HEADERS FROM "file:///C:/TimeSlotTidy.csv" AS csvLine
-CREATE (n:Timeslot {slotid: csvLine.SlotId1})
+CREATE (n:Timeslot {slotid: csvLine.SlotId1, start: csvLine.Start, end: csvLine.End, classtype: csvLine.Classtype})
+
+
+##################################
+Create Constraints (Copy each line in seperatly)
+##################################
+
+CREATE CONSTRAINT ON (n:Timeslot) ASSERT n.slotid IS UNIQUE
+
+CREATE CONSTRAINT ON (n:Group) ASSERT n.groupname IS UNIQUE
+
+CREATE CONSTRAINT ON (n:Module) ASSERT n.modulename IS UNIQUE
+
+CREATE CONSTRAINT ON (n:Student) ASSERT n.sid IS UNIQUE
+
+CREATE CONSTRAINT ON (n:Lecturer) ASSERT n.firstname IS UNIQUE
+
+CREATE CONSTRAINT ON (n:Room) ASSERT n.roomname IS UNIQUE
+
+CREATE CONSTRAINT ON (n:Course) ASSERT n.courseid IS UNIQUE
+
+CREATE CONSTRAINT ON (n:Department) ASSERT n.department IS UNIQUE
+
+CREATE CONSTRAINT ON (n:Campus) ASSERT n.name IS UNIQUE
 
 ############################################################################
 #################################
-Create Relationships
+Create Relationships (Copy each paragraph seperatly)
 #################################
 
 USING PERIODIC COMMIT

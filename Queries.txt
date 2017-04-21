@@ -26,3 +26,16 @@ RETURN p
 //When are lecturers lecturing at the same time
 MATCH p=(l:Lecturer)-[:Lecturing]-()-[]-(n:Lecturer)
 RETURN p
+
+//Joining two queries find lecturer on a friday and find when graph theory is on a friday
+MATCH p=(l:Lecturer)-[]-(t:Timeslot)-[]-(g:Group) where t.slotid Contains'fri' and t.classtype="Lecture"
+RETURN p
+UNION
+Match p=(m:Module)-[]->(tt:Timeslot)where tt.slotid Contains 'fri' and m.modulename = "GRAPH THEORY" RETURN p
+
+
+//Not in use
+MATCH p=(l:Lecturer)-[:Lecturing]->(t:Timeslot)<-[:In_Class]-(g:Group) where t.slotid Contains'fri' and t.classtype="Lecture"
+RETURN p
+UNION
+Match p=(m:Module)-[:Tought_at]->(tt:Timeslot)where tt.slotid Contains'fri' RETURN p
