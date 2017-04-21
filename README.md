@@ -100,7 +100,7 @@ I implimented the data by tiding up the data that I extracted from the gmit webs
 
 #### Database design
 
-![Db design pic]()
+![Db design pic](Graph-theory-neo4j-timetable-graphDB/DbDesign.JPG)
 
 The database design is the part of this project I spent most time on because I made a few different designs on paper but each one when implementated had issues with being queried or it did'nt seem to suit graphically in my opinion. Time was the biggest issue for me as it is hard to represent time in a simple way while neo4j uses milliseconds from the Epoch to measure time I was trying to represent the working week for a semester in a simple form so In my finaly design I chose to represent time as very specific timeslot nodes so for example one timeslot has a node with a `Unique string property "fri at 11 to 12"`.
 
@@ -168,7 +168,7 @@ Below here are design ideas that I chose not to go ahead with as they did not su
 
 In my second last db design I was using represented time as day nodes rather than timeslots while it would work for querying it just didnt seem to sit well with me so I chose not to stick with that design the csv files are in the not in use folder in the tidy data folder.
 
-![]()
+![](https://github.com/MartinFen/Graph-theory-neo4j-timetable-graphDB/blob/master/Day%20design.JPG)
 
 #### Graphaware framework / Timetree library
 
@@ -191,7 +191,7 @@ The next step is to run a query try the following and see that it creates a tree
 $ CALL ga.timetree.range({start: 1491811200000, end: 1492189200000, create: true})
 ```
 
-[![Result](https://github.com/MartinFen/Graph-theory-neo4j-timetable-graphDB/blob/master/Timetree_example2.jpg)]
+![Result](https://github.com/MartinFen/Graph-theory-neo4j-timetable-graphDB/blob/master/Timetree_example2.jpg)
 
 Note the numbers in the query, Neo4j measures the time in milliseconds between the dates of `2017-04-10 to 2017-04-14` however the first number is actualy the time its been since the [Unix Epoch](https://en.wikipedia.org/wiki/Unix_time).
 
@@ -201,7 +201,7 @@ I didnt use these plugins because it would'nt work in this project, I chose to n
 
 ## Conclusion
 
-
+My conclusion for this project is that neo4j and graph databases are very useful tools to use in representing data altough representing a timetable can be a hard thing to do properly because its an [np hard/complete issue](http://stackoverflow.com/questions/2162397/are-all-scheduling-problems-np-hard). The reasons I have learned how it is usefull is due to the fact that neo4j offers a great way to query a db and get results quickly no matter the db size which is extreamely useful in modern db's where as relational databases tend to become much slower as they get larger. Another big benifit of using a Graph db over a relational db is due to the fact that there is much more freedom with adding, updating and deleting data where as in a relational db you have to worry about strong referental integrity, also graph dbs are a great alternative to other types of nosql db's because they offer their own ways to enforce some for of constraints on data in the db so that there isnt a total lack of control on inconsistent data. There are many other reasons a person might like a graph database such as it is easy to learn how to use one and its a great way to get a db up and running quickly and its free software , hell yeah. So overall im happy with my experience of learing neo4j and i even learned that there are a lot of third party plugins that work with the program.
 
 ## References
 
@@ -246,6 +246,8 @@ I didnt use these plugins because it would'nt work in this project, I chose to n
 - [Learning cypher 2](http://neo4j.com/docs/developer-manual/current/cypher/)
 
 - [Loading csv files](http://neo4j.com/docs/developer-manual/current/get-started/cypher/importing-csv-files-with-cypher/)
+
+- [Cypher cheat sheet](https://neo4j.com/docs/cypher-refcard/current/)
 
 ### Un-Used
 
