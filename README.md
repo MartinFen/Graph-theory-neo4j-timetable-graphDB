@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This project is for my 3rd year module graph theory which I am using neo4j to represent a prototype timetabling system for a college in graph database form. The project is a small prototype of my current semester with some mildly tidied data that I scraped from the college timetableing website and the gmit website. My agument 
+This project is for my 3rd year module graph theory which I am using neo4j to represent a prototype timetabling system for a college in graph database form. The project is a small prototype of my current semester with some mildly tidied data that I scraped from the college timetableing website and the gmit website. My agument for the reason that iv chosen to only represent a semester is if it works for one semester it should work for a whole college timetable.
 
 #### Aims
 
@@ -12,7 +12,7 @@ The aims of the project are to show I can reperesent a prototype timetabling sys
 
 #### What is a timetabling system
 
-A timetabe is a visual representation of a period of time and the events that happen over that period of time, so a college a timetable is a representation that shows the times in the week when subjects are taught at, what lecturer is teachin the subject and what room it is happening at. 
+A timetable is a visual representation of a period of time and the events that happen over that period of time, so a college a timetable is a representation that shows the times in the week when subjects are taught at, what lecturer is teaching the subject and what room it is happening at as well as what student group(s) are attending the class. 
 
 ## Database
 
@@ -197,7 +197,7 @@ Note the numbers in the query, Neo4j measures the time in milliseconds between t
 
 #### Reasons for not using this approach
 
-I didnt use these plugins because it would'nt work in this project, I chose to not use tools and go with a simpler design because I was having issues with getting the framework to build the nodes that had `weekday names` that matched the date nodes, I also had an issue to change the `resolution : default is day` to `hours`. I felt it was better then to go with a simple prototype design for the day & time representation in the database.
+I didnt use these plugins because they would'nt work in this project with the design I have choosen, I choose to go with a simpler design because I was having issues with getting the framework to build the nodes that had `weekday names` that matched the date nodes, I also had an issue to change the `resolution :` (default is day) to `hours`. I felt it was better then to go with a simple prototype design for the day & time representation in the database as I didnt have enough time to use this approach to represent time even tho I think it would have worked great.
 
 ## Conclusion
 
@@ -205,7 +205,7 @@ My conclusion for this project is that neo4j and graph databases are very useful
 
 ## References
 
-### Neo4j,
+#### Neo4j,
 
 - [Neo4j](https://neo4j.com)
 
@@ -213,13 +213,13 @@ My conclusion for this project is that neo4j and graph databases are very useful
 
 - [Neo4j docs](https://neo4j.com/docs/developer-manual/current/introduction/)
 
-### Data extraction
+#### Data extraction
 
 - [GMIT Timetabling website](https://timetable.gmit.ie/)
 
 - [GMIT website](https://www.gmit.ie/)
 
-### Regex
+#### Regex
 
 - [Regex editor](http://regexr.com/)
 
@@ -235,11 +235,11 @@ My conclusion for this project is that neo4j and graph databases are very useful
 
 - [Remove numbers inside backets](http://stackoverflow.com/questions/38962471/only-remove-numbers-inside-parentheses-brackets)
 
-### Github (Markdown)
+#### Github (Markdown)
 
 - [Live markdwn editor](http://dillinger.io/)
 
-### Cypher
+#### Cypher
 
 - [Learning cypher 1](https://neo4j.com/developer/cypher-query-language/)
 
@@ -249,7 +249,7 @@ My conclusion for this project is that neo4j and graph databases are very useful
 
 - [Cypher cheat sheet](https://neo4j.com/docs/cypher-refcard/current/)
 
-### Un-Used
+#### Un-Used
 
 - [Graphaware Github](https://github.com/graphaware/neo4j-framework)
 
