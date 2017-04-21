@@ -16,23 +16,21 @@ The aims of the project are to show I can reperesent a prototype timetabling sys
 
 #### Neo4j
 
-[![Pic](https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/neo4j-nosql.png)]
+![](https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/neo4j-nosql.png)
 
 [Neo4j](https://neo4j.com/docs/developer-manual/3.1/introduction/) is an open-source NoSQL graph database implemented in Java and Scala. With development starting in 2003, it has been publicly available since 2007. The source code and issue tracking are available on GitHub, with support readily available on Stack Overflow and the Neo4j Google group. Neo4j is used today by hundreds of thousands of companies and organizations in almost all industries. Use cases include matchmaking, network management, software analytics, scientific research, routing, organizational and project management, recommendations, social networks, and more.
 
 #### Cypher
 
-[Pic](https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/feature-cypher.png)
-
 [Cypher](https://neo4j.com/developer/cypher-query-language/) is a declarative, SQL-inspired language for describing patterns in graphs visually using an ascii-art syntax. It allows us to state what we want to select, insert, update or delete from our graph data without requiring us to describe exactly how to do it.
+
+![](https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/feature-cypher.png)
 
 #### Nodes
 
-![Pic]()
+![](https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/to_graph_model.png)
 
-Node are essentially entities which can hold any number of attributes (key-value-pairs). Nodes can be tagged with labels representing their different roles in your domain. In addition to contextualizing node and relationship properties, labels may also serve to attach metadata—​index or constraint information—​to certain nodes.
-
-The nodes of the database are as follows,
+Node are essentially entities which can hold any number of attributes (key-value-pairs). Nodes can be tagged with labels representing their different roles in your domain. In addition to contextualizing node and relationship properties, labels may also serve to attach metadata—​index or constraint information—​to certain nodes. The nodes of the database are as follows,
 
 | Node(Node label) | Description |
 | ------ | ------ |
@@ -46,7 +44,7 @@ The nodes of the database are as follows,
 | Module | node(s) to represent the modules(s) of a course |
 | Student | node(s) to represent the students(s) of the college |
 
-To create the nodes I used a cypher command called [Load CSV]() which allowed me to store the data I scraped in csv files
+To create the nodes I used a cypher command called [Load CSV](http://neo4j.com/docs/developer-manual/current/get-started/cypher/importing-csv-files-with-cypher/) which allowed me to store the data I scraped in csv files
 then load the data in and create a group of nodes. An example command I used to create nodes is as follows,
 ```
 LOAD CSV WITH HEADERS FROM "file:///C:/LecturersTidy.csv" AS csvLine
@@ -59,9 +57,7 @@ Labels are a way to group nodes into catagories so it is easier query and find g
 
 #### Properties
 
-[Properties](https://neo4j.com/docs/developer-manual/current/introduction/graphdb-concepts/) are named values that are stored inside nodes and are used to contain data such as `title` and `firstname` which are properties of a lecturer node. Properties are capable of storing Numeric values, String values, Boolean values and Lists of any of the above values
-
-as seen below,
+[Properties](https://neo4j.com/docs/developer-manual/current/introduction/graphdb-concepts/) are named values that are stored inside nodes and are used to contain data such as `title` and `firstname` which are properties of a lecturer node. Properties are capable of storing Numeric values, String values, Boolean values and Lists of any of the above values. An example of a proerty in the db is seen below,
 
 | Property | Description |
 | ------ | ------ |
@@ -93,27 +89,73 @@ Below are the tools you need to setup and use this project
 
 #### Data extraction
 
-I used the gmit timetabling and home website to extract data about the campus, departments, rooms, course, modules and lecturers. I then modeled the data into nodes and properties (key-value-pairs) and the relationships between them. I was able to extract the data by viewing the webpages source code and coping the raw data scraped into a text editor and using reglur expessions to edit an manipulate the data and tidy it up.
+I used the gmit [timetabling](http://timetable.gmit.ie/) and [home](https://www.gmit.ie/) website to extract data about the campus, departments, rooms, course, modules and lecturers. I then modeled the data into nodes and properties (key-value-pairs) and the relationships between them. I was able to extract the data by viewing the webpages source code and coping the raw data scraped into a text editor and using reglur expessions to edit an manipulate the data and tidy it up.
 
 #### Data Implementation
 
+I implimented the data by tiding up the data that I extracted from the gmit websites and putting it into csv files and then using a cypher feature called [Load CSV](http://neo4j.com/docs/developer-manual/current/get-started/cypher/importing-csv-files-with-cypher/) which allowed me to create nodes, labels, properties and relationships quickly. The raw and tidy data are on in folders in the git repo if you wish to look at the files.
 
 #### Database design
 
+![Db design pic]()
+
+The database design is the part of this project I spent most time on because I made a few different design on paper but each one when implementated had issues with being queried or it did'nt seem to suit graphically in my opinion. Time was the biggest issue for me as it is hard to represent time in a simple way while neo4j uses milliseconds from the Epoch to measure time I was trying to represent the working week for a semester in a simple form so In my finaly design I chose to represent time as very specific timeslot nodes so for example one timeslot has a node with a `Unique string property "fri at 11 to 12"`.
+
 #### Cypher Queries
 
-> There are queries I used to search the nodes of the database
-> Match n Return n;
+These are some queries that I ran on the database some are specific to retrive data I have in the db and some are just logical kind of queries,
 
-## Not implementated but useful
+1. Find how many nodes are in the db and count how many relationships each node has
+`start n=node(*)
+match (n)-[r]-()
+return n, count(r) as rel_count
+order by rel_count desc`
+
+2. Count how many leaf nodes are in the db
+`START n=node(*) 
+MATCH (n)-[r*]->(l)
+WHERE NOT((l)-->()) 
+RETURN DISTINCT LABELS(l) as Nodes, COUNT(l) as Number_Of_Leaf_Nodes;`
+
+3. How many times does Ian teach in a week
+`MATCH (a:Lecturer)-[:Lecturing]->(Timeslot)
+Where a.firstname = "Ian"
+RETURN a as Lecturer,count(*) AS Classes_Weekly`
+
+4. Find all lecturers lecturing on a monday
+`MATCH (n:Lecturer)-[:Lecturing]->(m:Timeslot) WHERE m.slotid contains 'mon' 
+RETURN n,m`
+
+5. Shortest path between Ian and Deirdre
+`MATCH p=shortestPath((l:Lecturer {firstname:"Ian"})-[*]-(n:Lecturer {firstname:"Deirdre"}))
+RETURN p`
+
+6. When are lecturers lecturing at the same time
+`MATCH p=(l:Lecturer)-[:Lecturing]-()-[]-(n:Lecturer)
+RETURN p`
+
+7. This is a union query example to find lecturer on a friday and find when graph theory is on a friday
+`MATCH p=(l:Lecturer)-[]-(t:Timeslot)-[]-(g:Group) where t.slotid Contains'fri' and t.classtype="Lecture"
+RETURN p
+UNION
+Match p=(m:Module)-[]->(tt:Timeslot)where tt.slotid Contains 'fri' and m.modulename = "GRAPH THEORY" RETURN p
+`
+
+## Not implementated
 
 Below here are design ideas that I chose not to go ahead with as they did not suit the project design in this case but are useful for future projects.
+
+#### Day Nodes
+
+In my second last db design I was using represented time as day nodes rather than timeslots while it would work for querying it just didnt seem to sit well with me so I chose not to stick with that design the csv files are in the not in use folder in the tidy data folder.
+
+![Days pic]()
 
 #### Graphaware framework / Timetree library
 
 The [graphaware](https://graphaware.com/) framework is a useful one that works with neo4j and spring(Java) which also uses a REST api. It can be used with neo4j by itself to quickly create a tree of nodes and relationships to reperesent date & time as neo4j doesnt have a very good built in way of designing that and this also saves you time in having to design a calander for a long date range.
 
-#### How to use
+##### How to use
 
 To enable the framework you need to [download the jar](https://graphaware.com/products/) file put it in the plugin folder of the neo4j install directory `C:\Program Files\Neo4j CE 3.1.2\plugins`.
 
@@ -148,7 +190,9 @@ I didnt use these plugins because it would'nt work in this project, I chose to n
 
 - [Neo4j](https://neo4j.com)
 
-- [Neo4j docs](https://neo4j.com/developer/get-started/)
+- [Neo4j learning](https://neo4j.com/developer/get-started/)
+
+- [Neo4j docs](https://neo4j.com/docs/developer-manual/current/introduction/)
 
 ### Data extraction
 
@@ -189,5 +233,3 @@ I didnt use these plugins because it would'nt work in this project, I chose to n
 - [Graphaware Github](https://github.com/graphaware/neo4j-framework)
 
 - [Timetree Github](https://github.com/graphaware/neo4j-timetree)
-
-

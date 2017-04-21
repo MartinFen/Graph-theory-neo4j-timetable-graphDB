@@ -1,0 +1,21 @@
+SlotId1,Start,End,Classtype
+mon at 10 to 11,10,11,Lecture
+mon at 12 to 14,12,14,Lecture
+mon at 14 to 15,14,15,Lab
+mon at 16 to 18,16,18,Lab
+tue at 9 to 11,9,11,Lab
+tue at 11 to 13,11,13,Lab
+tue at 12 to 13,12,13,Lab
+tue at 14 to 16,14,16,Lab
+tue at 16 to 18,16,18,Lab
+wen at 9 to 10,9,10,Lab
+wen at 10 to 11,10,11,Lecture
+wen at 13 to 14,13,14,Lecture
+wen at 14 to 15,14,15,Lecture
+wen at 15 to 16,15,16,Lecture
+wen at 16 to 17,16,17,Lecture
+thu at 9 to 11,9,11,Lab
+thu at 11 to 13,11,13,Lab
+thu at 14 to 16,14,16,Lab
+fri at 9 to 11,9,11,Lab
+fri at 11 to 12,11,12,Lecture
