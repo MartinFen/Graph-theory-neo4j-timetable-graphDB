@@ -16,9 +16,9 @@ The aims of the project are to show I can reperesent a prototype timetabling sys
 
 #### Neo4j
 
-![](https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/neo4j-nosql.png)
-
 [Neo4j](https://neo4j.com/docs/developer-manual/3.1/introduction/) is an open-source NoSQL graph database implemented in Java and Scala. With development starting in 2003, it has been publicly available since 2007. The source code and issue tracking are available on GitHub, with support readily available on Stack Overflow and the Neo4j Google group. Neo4j is used today by hundreds of thousands of companies and organizations in almost all industries. Use cases include matchmaking, network management, software analytics, scientific research, routing, organizational and project management, recommendations, social networks, and more.
+
+![](https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/neo4j-nosql.png)
 
 #### Cypher
 
@@ -28,9 +28,9 @@ The aims of the project are to show I can reperesent a prototype timetabling sys
 
 #### Nodes
 
-![](https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/to_graph_model.png)
-
 Node are essentially entities which can hold any number of attributes (key-value-pairs). Nodes can be tagged with labels representing their different roles in your domain. In addition to contextualizing node and relationship properties, labels may also serve to attach metadata—​index or constraint information—​to certain nodes. The nodes of the database are as follows,
+
+![](https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/to_graph_model.png)
 
 | Node(Node label) | Description |
 | ------ | ------ |
@@ -46,6 +46,7 @@ Node are essentially entities which can hold any number of attributes (key-value
 
 To create the nodes I used a cypher command called [Load CSV](http://neo4j.com/docs/developer-manual/current/get-started/cypher/importing-csv-files-with-cypher/) which allowed me to store the data I scraped in csv files
 then load the data in and create a group of nodes. An example command I used to create nodes is as follows,
+
 ```
 LOAD CSV WITH HEADERS FROM "file:///C:/LecturersTidy.csv" AS csvLine
 CREATE (n:Lecturer {title: csvLine.Title, surname: csvLine.Surname, firstname: csvLine.FName, campus: csvLine.Campus, extension: csvLine.Extension, contact: csvLine.Contact, email: csvLine.Email})
@@ -71,9 +72,9 @@ CREATE (n:Lecturer {title: csvLine.Title, surname: csvLine.Surname, firstname: c
 
 #### Relationships
 
-[![Pic](https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/data-modeling-1.png)
-
 Relationships provide directed, named semantically relevant connections between two node-entities. A relationship always has a direction, a type, a start node, and an end node. Like nodes, relationships can have any properties. As relationships are stored efficiently, two nodes can share any number or type of relationships without sacrificing performance.
+
+![Pic](https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/data-modeling-1.png)
 
 ## Implementation 
 
@@ -106,40 +107,56 @@ The database design is the part of this project I spent most time on because I m
 These are some queries that I ran on the database some are specific to retrive data I have in the db and some are just logical kind of queries,
 
 1. Find how many nodes are in the db and count how many relationships each node has
-`start n=node(*)
+```
+start n=node(*)
 match (n)-[r]-()
 return n, count(r) as rel_count
-order by rel_count desc`
+order by rel_count desc
+```
 
 2. Count how many leaf nodes are in the db
-`START n=node(*) 
+```
+START n=node(*) 
 MATCH (n)-[r*]->(l)
 WHERE NOT((l)-->()) 
-RETURN DISTINCT LABELS(l) as Nodes, COUNT(l) as Number_Of_Leaf_Nodes;`
+RETURN DISTINCT LABELS(l) as Nodes, COUNT(l) as Number_Of_Leaf_Nodes;
+```
 
 3. How many times does Ian teach in a week
-`MATCH (a:Lecturer)-[:Lecturing]->(Timeslot)
+```
+MATCH (a:Lecturer)-[:Lecturing]->(Timeslot)
 Where a.firstname = "Ian"
-RETURN a as Lecturer,count(*) AS Classes_Weekly`
+RETURN a as Lecturer,count(*) AS Classes_Weekly
+```
 
 4. Find all lecturers lecturing on a monday
-`MATCH (n:Lecturer)-[:Lecturing]->(m:Timeslot) WHERE m.slotid contains 'mon' 
-RETURN n,m`
+```
+MATCH (n:Lecturer)-[:Lecturing]->(m:Timeslot) WHERE m.slotid contains 'mon' 
+RETURN n,m
+```
 
 5. Shortest path between Ian and Deirdre
-`MATCH p=shortestPath((l:Lecturer {firstname:"Ian"})-[*]-(n:Lecturer {firstname:"Deirdre"}))
-RETURN p`
+```
+MATCH p=shortestPath((l:Lecturer {firstname:"Ian"})-[*]-(n:Lecturer {firstname:"Deirdre"}))
+RETURN p
+```
 
 6. When are lecturers lecturing at the same time
-`MATCH p=(l:Lecturer)-[:Lecturing]-()-[]-(n:Lecturer)
-RETURN p`
+```
+MATCH p=(l:Lecturer)-[:Lecturing]-()-[]-(n:Lecturer)
+RETURN p
+```
 
 7. This is a union query example to find lecturer on a friday and find when graph theory is on a friday
-`MATCH p=(l:Lecturer)-[]-(t:Timeslot)-[]-(g:Group) where t.slotid Contains'fri' and t.classtype="Lecture"
+```
+MATCH p=(l:Lecturer)-[]-(t:Timeslot)-[]-(g:Group) 
+where t.slotid Contains'fri' and t.classtype="Lecture"
 RETURN p
 UNION
-Match p=(m:Module)-[]->(tt:Timeslot)where tt.slotid Contains 'fri' and m.modulename = "GRAPH THEORY" RETURN p
-`
+Match p=(m:Module)-[]->(tt:Timeslot)
+where tt.slotid Contains 'fri' and m.modulename = "GRAPH THEORY" 
+RETURN p
+```
 
 ## Not implementated
 
@@ -149,7 +166,7 @@ Below here are design ideas that I chose not to go ahead with as they did not su
 
 In my second last db design I was using represented time as day nodes rather than timeslots while it would work for querying it just didnt seem to sit well with me so I chose not to stick with that design the csv files are in the not in use folder in the tidy data folder.
 
-![Days pic]()
+![]()
 
 #### Graphaware framework / Timetree library
 
