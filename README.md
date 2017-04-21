@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This project is for my 3rd year module graph theory which I am using neo4j to represent a prototype timetabling system for a college in graph database form. The project is a small prototype of my current semester with some mildly tidied data that I scraped from the college timetableing website and the gmit website.
+This project is for my 3rd year module graph theory which I am using neo4j to represent a prototype timetabling system for a college in graph database form. The project is a small prototype of my current semester with some mildly tidied data that I scraped from the college timetableing website and the gmit website. My agument 
 
 #### Aims
 
@@ -12,7 +12,7 @@ The aims of the project are to show I can reperesent a prototype timetabling sys
 
 #### What is a timetabling system
 
-
+A timetabe is a visual representation of a period of time and the events that happen over that period of time, so a college a timetable is a representation that shows the times in the week when subjects are taught at, what lecturer is teachin the subject and what room it is happening at. 
 
 ## Database
 
@@ -102,7 +102,7 @@ I implimented the data by tiding up the data that I extracted from the gmit webs
 
 ![Db design pic]()
 
-The database design is the part of this project I spent most time on because I made a few different design on paper but each one when implementated had issues with being queried or it did'nt seem to suit graphically in my opinion. Time was the biggest issue for me as it is hard to represent time in a simple way while neo4j uses milliseconds from the Epoch to measure time I was trying to represent the working week for a semester in a simple form so In my finaly design I chose to represent time as very specific timeslot nodes so for example one timeslot has a node with a `Unique string property "fri at 11 to 12"`.
+The database design is the part of this project I spent most time on because I made a few different designs on paper but each one when implementated had issues with being queried or it did'nt seem to suit graphically in my opinion. Time was the biggest issue for me as it is hard to represent time in a simple way while neo4j uses milliseconds from the Epoch to measure time I was trying to represent the working week for a semester in a simple form so In my finaly design I chose to represent time as very specific timeslot nodes so for example one timeslot has a node with a `Unique string property "fri at 11 to 12"`.
 
 #### Cypher Queries
 
