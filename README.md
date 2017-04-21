@@ -16,19 +16,19 @@ The aims of the project are to show I can reperesent a prototype timetabling sys
 
 #### Neo4j
 
-[![Pic](https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/neo4j-nosql.png)
+[![Pic](https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/neo4j-nosql.png)]
 
 [Neo4j](https://neo4j.com/docs/developer-manual/3.1/introduction/) is an open-source NoSQL graph database implemented in Java and Scala. With development starting in 2003, it has been publicly available since 2007. The source code and issue tracking are available on GitHub, with support readily available on Stack Overflow and the Neo4j Google group. Neo4j is used today by hundreds of thousands of companies and organizations in almost all industries. Use cases include matchmaking, network management, software analytics, scientific research, routing, organizational and project management, recommendations, social networks, and more.
 
 #### Cypher
 
-[![Pic](https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/feature-cypher.png)
+[Pic](https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/feature-cypher.png)
 
 [Cypher](https://neo4j.com/developer/cypher-query-language/) is a declarative, SQL-inspired language for describing patterns in graphs visually using an ascii-art syntax. It allows us to state what we want to select, insert, update or delete from our graph data without requiring us to describe exactly how to do it.
 
 #### Nodes
 
-[![Pic](https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/neo4j-nosql.png)
+![Pic]()
 
 Node are essentially entities which can hold any number of attributes (key-value-pairs). Nodes can be tagged with labels representing their different roles in your domain. In addition to contextualizing node and relationship properties, labels may also serve to attach metadata—​index or constraint information—​to certain nodes.
 
