@@ -30,7 +30,7 @@ A timetable is a visual representation of a period of time and the events that h
 
 #### Nodes
 
-Node are essentially entities which can hold any number of attributes (key-value-pairs). Nodes can be tagged with labels representing their different roles in your domain. In addition to contextualizing node and relationship properties, labels may also serve to attach metadata—​index or constraint information—​to certain nodes. The nodes of the database are as follows,
+Node are essentially entities which can hold any number of attributes (key-value-pairs). Nodes can be tagged with labels representing their different roles in your domain. In addition to contextualizing node and relationship properties, labels may also serve to attach metadata—​index or constraint information—​to certain nodes. The nodes of the database are as below the picture.
 
 ![](https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/to_graph_model.png)
 
@@ -66,7 +66,7 @@ Labels are a way to group nodes into catagories so it is easier query and find g
 | ------ | ------ |
 | firstname | property that contains data such as a lecturers first name |
 
-The properties of the lecture nodes were created along with the nodes using the th [load CSV]() command as follows,
+The properties of the lecture nodes were created along with the nodes using the th [load CSV](http://neo4j.com/docs/developer-manual/current/get-started/cypher/importing-csv-files-with-cypher/) command as follows,
 ```
 LOAD CSV WITH HEADERS FROM "file:///C:/LecturersTidy.csv" AS csvLine
 CREATE (n:Lecturer {title: csvLine.Title, surname: csvLine.Surname, firstname: csvLine.FName, campus: csvLine.Campus, extension: csvLine.Extension, contact: csvLine.Contact, email: csvLine.Email})
@@ -102,7 +102,7 @@ I implimented the data by tiding up the data that I extracted from the gmit webs
 
 ![](https://github.com/MartinFen/Graph-theory-neo4j-timetable-graphDB/blob/master/DbDesign.JPG?raw=true)
 
-The database design is the part of this project I spent most time on because I made a few different designs on paper but each one when implementated had issues with being queried or it did'nt seem to suit graphically in my opinion. Time was the biggest issue for me as it is hard to represent time in a simple way while neo4j uses milliseconds from the Epoch to measure time I was trying to represent the working week for a semester in a simple form so In my finaly design I chose to represent time as very specific timeslot nodes so for example one timeslot has a node with a `Unique string property "fri at 11 to 12"`.
+The database design is the part of this project I spent most time on because I made a few different designs on paper but each one when implementated had issues with being queried or it did'nt seem to suit graphically in my opinion. Time was the biggest issue for me as it is hard to represent time in a simple way while neo4j uses milliseconds from the Epoch to measure time I was trying to represent the working week for a semester in a simple form so In my finaly design I chose to represent time as very specific timeslot nodes so for example one timeslot has a node with a `Unique` string property `"fri at 11 to 12"`.
 
 #### Cypher Queries
 
